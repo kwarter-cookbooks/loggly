@@ -88,7 +88,7 @@ module Opscode
           Chef::Log.debug("Loggly/#{domain}: Attempting to add device #{device_ip} to input #{input_name}...")
           http = Net::HTTP.new("#{domain}.loggly.com")
           request = Net::HTTP::Post.new("/api/devices/")
-          request.set_form_data({'input_id' => input_id, 'ip' => device_ip})
+          request.set_form_data({'input_id' => input_id, 'ip' => device_ip, 'name' => node.name})
           request.set_content_type("text/plain")
           request.basic_auth node[:loggly][:username], node[:loggly][:password]
           response = http.request(request)

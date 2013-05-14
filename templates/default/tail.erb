@@ -1,0 +1,11 @@
+$ModLoad imfile
+$InputFileName <%= @resource.file %>
+$InputFileTag <%= @resource.tag %>:
+$InputFileStateFile <%= @resource.state_file %>
+$InputFileFacility <%= @resource.facility %>
+$InputFileSeverity <%= @resource.severity %>
+$InputFilePersistStateInterval <%= @resource.persist_interval %>
+$InputRunFileMonitor
+
+# if $programname == '<%= @resource.tag %>' then @@logs.loggly.com:<%= node[:loggly][:port] %>
+# & ~
